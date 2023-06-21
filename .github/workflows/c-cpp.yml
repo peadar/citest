@@ -10,11 +10,12 @@ jobs:
         # First we test all OSes in the default configuration.
         os:
           - ubuntu-22.04
-        configs: [default]
+        configs:
+          - default
         # Then we include any extra configs we want to test for specific VMs.
         # Valgrind slows things down quite a bit, so start them first.
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
     - name: setup CI system
-      run: sudo -u nobody id
+      run: sudo -u nobody id && sudo -u nobody /home/runner/foo
